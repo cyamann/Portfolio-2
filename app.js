@@ -5,11 +5,6 @@ const app = express();
 // Statik dosyaları sun
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Dinamik rota tanımlaması
-app.get('/hello', (req, res) => {
-    res.send('Merhaba Dünya!');
-});
-
 // PORT tanımlaması
 const PORT = process.env.PORT || 3000;
 
