@@ -1,10 +1,18 @@
-const express = require("express");
-const path = require("path"); // Import the 'path' module
+const express = require('express');
+const path = require('path');
 const app = express();
 
-// Serve static files from the 'public' folder
-app.use(express.static(path.join(__dirname, "public")));
+// Statik dosyaları sun
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000, () => {
-  console.log("App is running on port 3000");
+// Dinamik rota tanımlaması
+app.get('/hello', (req, res) => {
+    res.send('Merhaba Dünya!');
+});
+
+// PORT tanımlaması
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`App is running on port ${PORT}`);
 });
